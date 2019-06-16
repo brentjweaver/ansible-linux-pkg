@@ -1,2 +1,13 @@
 ---
-# vars file for ansible-linux-pkg
+
+# Used to make figureing out distro a bit easier
+
+linux_distro: {
+  "CentOS": "rhel",
+  "Amazon": "rhel",
+  "Debian": "debian",
+  "Ubuntu": "debian"
+}
+
+common_pkg: "*"       # Sets default to update all packages
+allow_reboot: false   # Do not reboot by default

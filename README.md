@@ -7,7 +7,7 @@ Requirements
 ------------
 
 * SSH with passwordless sudo (makes life easier)
-*
+* Target nodes use a package manager (i.e. yum or apt) and have repos configured
 
 Role Variables
 --------------
@@ -15,7 +15,9 @@ Role Variables
 Variable | Type | Expected Value | Default | Notes |
 ---------|------|---------|---------|-------|
 allow_reboot | boolean | true \| false |  false |
-pkg_list | list | * for all package upgrades or list a specific package(s) | * | Defaults to updating all packages
+common_list | list | * for all package upgrades or list a specific package(s) | * | Defaults to updating all packages
+rpm_list | list | List of packages for Red Hat based distro | none | Use this variable to only affect RH based systems
+apt_list | list | List of packages for Ubuntu based distro | none | Use this variable to only affect Ubuntu based systems
 
 Dependencies
 ------------
@@ -30,7 +32,7 @@ Including an example of how to use your role (for instance, with variables passe
     - hosts: servers
       become: true
       roles:
-         - { role: "ansible-linux-pkg", allow_reboot: true, pkg_list: [ "yumutils", "apache2", "nginix" ] }
+         - { role: "ansible-linux-pkg", allow_reboot: true, common_list: [ "apache2", "nginix" ] }
 
 License
 -------
@@ -40,4 +42,5 @@ BSD
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+Brent Weaver   
+June 2019
