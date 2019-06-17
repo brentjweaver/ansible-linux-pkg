@@ -7,10 +7,12 @@
 - name: Check to see if a reboot is required
   stat:
     path: "/var/run/reboot-required"
-  register: "reboot"
+  register: "reboot_file"
+
+- debug: var=reboot_file.stat.exists
 
 - command: /bin/true
   when:
-    - reboot.stat.exists
+    - reboot_file.stat.exists
   notify:
-    - "reboot"
+    - reboot

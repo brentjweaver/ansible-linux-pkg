@@ -2,10 +2,10 @@
 
 - name: Manage distro common packages to a state of {{ pkg_state }}
   package:
-    name: "{{ all_pkg }}"
+    name: "{{ pkg }}"
     state: "{{ pkg_state }}"
   when:
-    - all_pkg is defined
+    - pkg is defined
 
 - name: Manage deb distro specific packages to a state of {{ pkg_state }}
   package:
