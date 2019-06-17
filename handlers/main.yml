@@ -1,2 +1,13 @@
 ---
-# handlers file for ansible-linux-pkg
+- name: Reboot Node
+  shell: nohup bash -c "sleep 2s && shutdown -r now" &
+  notify: wait
+  listen: reboot
+  when:
+    - reboot == "true"
+
+- name: Wait for Node to come up
+  wait_for_connection:
+    timeout: 240
+    delay: 20
+  listen: wait

@@ -12,3 +12,4 @@ linux_distro: {
 mode: "install"
 pkg_state: "latest"
 allow_reboot: false   # Do not reboot by default
+update: true

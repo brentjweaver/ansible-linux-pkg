@@ -14,11 +14,12 @@ Role Variables
 
 Variable | Type | Expected Value | Default | Notes |
 ---------|------|---------|---------|-------|
-allow_reboot | boolean | true \| false |  false |
-all_list | list | * for all package upgrades or list a specific package(s) | * | Defaults to updating all packages
+allow_reboot | boolean | true \| false |  false |  
+mode | string | install \| update | update | Defaults to updating all packages
+all_list | list | List of packages suitable for all distros | none |
 rpm_list | list | List of packages for Red Hat based distro | none | Use this variable to only affect RH based systems
 apt_list | list | List of packages for Ubuntu based distro | none | Use this variable to only affect Ubuntu based systems
-pkg_state | string | latest \| abset | latest |
+pkg_state | string | latest \| abset | latest | only applicable when mode is install
 
 Dependencies
 ------------

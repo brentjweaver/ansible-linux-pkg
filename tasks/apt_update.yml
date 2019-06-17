@@ -1,2 +1,16 @@
 ---
-- debug: msg="testing update"
+- name: Update and upgrade apt packages
+  apt:
+    upgrade: yes
+    update_cache: yes
+
+- name: Check to see if a reboot is required
+  stat:
+    path: "/var/run/reboot-required"
+  register: "reboot"
+
+- command: /bin/true
+  when:
+    - reboot.stat.exists
+  notify:
+    - "reboot"
