@@ -3,10 +3,10 @@
 # Used to make figureing out distro a bit easier
 
 linux_distro: {
-  "CentOS": "rhel",
-  "Amazon": "rhel",
-  "Debian": "debian",
-  "Ubuntu": "debian"
+  "CentOS": "rpm",
+  "Amazon": "rpm",
+  "Debian": "deb",
+  "Ubuntu": "deb"
 }
 
 common_pkg: "*"       # Sets default to update all packages

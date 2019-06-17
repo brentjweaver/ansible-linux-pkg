@@ -1,2 +1,2 @@
 ---
-# tasks file for ansible-linux-pkg
+- include: "{{ linux_distro[ansible_distribution] }}_install.yml"
