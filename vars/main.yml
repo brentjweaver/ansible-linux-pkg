@@ -3,11 +3,12 @@
 # Used to make figureing out distro a bit easier
 
 linux_distro: {
-  "CentOS": "rpm",
-  "Amazon": "rpm",
-  "Debian": "deb",
-  "Ubuntu": "deb"
+  "CentOS": "yum",
+  "Amazon": "yum",
+  "Debian": "apt",
+  "Ubuntu": "apt"
 }
 
-common_pkg: "*"       # Sets default to update all packages
+mode: "install"
+pkg_state: "latest"
 allow_reboot: false   # Do not reboot by default

@@ -1,2 +1,2 @@
 ---
-- include: "{{ linux_distro[ansible_distribution] }}_install.yml"
+- include: "{{ linux_distro[ansible_distribution] }}_{{ mode }}.yml"
