@@ -7,7 +7,8 @@ Requirements
 ------------
 
 * SSH with passwordless sudo (makes life easier)
-* Target nodes use a package manager (i.e. yum or apt) and have repos configured
+* Target nodes have repos configured to retrieve requetsed packages
+
 
 Role Variables
 --------------
@@ -24,7 +25,8 @@ Variable | Type | Expected Value | Default | Notes |
 Dependencies
 ------------
 
-N/A
+Python
+SSH Access to target nodes
 
 Example Playbook
 ----------------
@@ -34,7 +36,7 @@ Including an example of how to use your role (for instance, with variables passe
     - hosts: servers
       become: true
       roles:
-         - { role: "ansible-linux-pkg", allow_reboot: true, all_list: [ "apache2", "nginix" ] }
+         - { role: "ansible-linux-pkg", allow_reboot: true, pkg: [ "apache2", "nginix" ] }
 
 License
 -------
