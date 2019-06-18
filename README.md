@@ -31,12 +31,21 @@ SSH Access to target nodes
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+Example installing apache2 and nginx, and reboot if required:
 
-    - hosts: servers
+```    - hosts: servers
       become: true
       roles:
          - { role: "ansible-linux-pkg", allow_reboot: true, pkg: [ "apache2", "nginix" ] }
+```
+
+To update all packages and allow a reboot:
+
+```  - hosts: servers
+      become: true
+      roles:
+         - { role: "ansible-linux-pkg", allow_reboot: true, udate: true }
+```
 
 License
 -------
