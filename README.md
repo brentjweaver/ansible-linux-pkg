@@ -33,7 +33,9 @@ Example Playbook
 
 Example installing apache2 and nginx, and reboot if required:
 
-```    - hosts: servers
+```
+---
+- hosts: servers
       become: true
       roles:
          - { role: "ansible-linux-pkg", allow_reboot: true, pkg: [ "apache2", "nginix" ] }
@@ -41,10 +43,12 @@ Example installing apache2 and nginx, and reboot if required:
 
 To update all packages and allow a reboot:
 
-```  - hosts: servers
-      become: true
-      roles:
-         - { role: "ansible-linux-pkg", allow_reboot: true, udate: true }
+``` 
+---
+- hosts: servers
+  become: true
+  roles:
+    - { role: "ansible-linux-pkg", allow_reboot: true, udate: true }
 ```
 
 License
