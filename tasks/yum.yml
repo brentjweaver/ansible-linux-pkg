@@ -1,0 +1,7 @@
+---
+- name: Manage yum distro specific packages to a state of {{ pkg_state }}
+  package:
+    name: "{{ yum_pkg }}"
+    state: "{{ pkg_state }}"
+  when:
+    - yum_pkg is defined

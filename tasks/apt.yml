@@ -1,18 +1,27 @@
 ---
+
+- name: Manage deb distro specific packages to a state of {{ pkg_state }}
+  package:
+    name: "{{ deb_pkg }}"
+    state: "{{ pkg_state }}"
+  when:
+    - deb_pkg is defined
+
 - name: Update and upgrade apt packages
   apt:
     upgrade: yes
     update_cache: yes
+  when:
+    - update
 
 - name: Check to see if a reboot is required
   stat:
     path: "/var/run/reboot-required"
   register: "reboot_file"
 
-- debug: var=reboot_file.stat.exists
-
 - command: /bin/true
   when:
     - reboot_file.stat.exists
+    - allow_reboot
   notify:
     - reboot

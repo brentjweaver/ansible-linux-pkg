@@ -7,22 +7,5 @@
   when:
     - pkg is defined
 
-- name: Manage deb distro specific packages to a state of {{ pkg_state }}
-  package:
-    name: "{{ deb_pkg }}"
-    state: "{{ pkg_state }}"
-  when:
-    - deb_pkg is defined
-    - linux_distro[ansible_distribution] == "apt"
 
-- name: Manage yum distro specific packages to a state of {{ pkg_state }}
-  package:
-    name: "{{ yum_pkg }}"
-    state: "{{ pkg_state }}"
-  when:
-    - yum_pkg is defined
-    - linux_distro[ansible_distribution] == "yum"
-
-- include: "{{ linux_distro[ansible_distribution] }}_update.yml"
-  when:
-    - update
+- include: "{{ linux_distro[ansible_distribution] }}.yml"

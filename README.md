@@ -14,12 +14,12 @@ Role Variables
 
 Variable | Type | Expected Value | Default | Notes |
 ---------|------|---------|---------|-------|
-allow_reboot | boolean | true \| false |  false |  
-mode | string | install \| update | update | Defaults to updating all packages
-all_list | list | List of packages suitable for all distros | none |
-rpm_list | list | List of packages for Red Hat based distro | none | Use this variable to only affect RH based systems
-apt_list | list | List of packages for Ubuntu based distro | none | Use this variable to only affect Ubuntu based systems
-pkg_state | string | latest \| abset | latest | only applicable when mode is install
+```allow_reboot``` | boolean | true \| false |  false |  This will allow a system reboot if a package install requires one
+```update``` | boolean | true \| false | false | This option will update all packages and reboot if you allow with the above allow_reboot option
+```pkg``` | list | List of packages suitable for all distros | none |
+```rpm_pkg``` | list | List of packages for Red Hat based distro | none | Use this variable to only affect RH based systems
+```apt_pkg``` | list | List of packages for Ubuntu based distro | none | Use this variable to only affect Ubuntu based systems
+```pkg_state``` | string | latest \| abset | latest | only applicable when mode is install
 
 Dependencies
 ------------
