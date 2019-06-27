@@ -25,8 +25,10 @@ Variable | Type | Expected Value | Default | Notes |
 Dependencies
 ------------
 
-Python
-SSH Access to target nodes
+* Python
+* yumutils installed on rhel based distros
+* Target nodes have package repositories configured
+
 
 Example Playbook
 ----------------
@@ -38,7 +40,7 @@ Example installing apache2 and nginx, and reboot if required:
 - hosts: servers
       become: true
       roles:
-         - { role: "ansible-linux-pkg", allow_reboot: true, pkg: [ "apache2", "nginix" ] }
+         - { role: "ansible-linux-pkg", allow_reboot: true, pkg: [ "apache2", "nginx" ] }
 ```
 
 To update all packages and allow a reboot:
@@ -48,8 +50,19 @@ To update all packages and allow a reboot:
 - hosts: servers
   become: true
   roles:
-    - { role: "ansible-linux-pkg", allow_reboot: true, udate: true }
+    - { role: "ansible-linux-pkg", allow_reboot: true, update: true }
 ```
+
+To install packges while updating everything else
+
+```
+---
+- hosts: servers
+  become: true
+  roles:
+    - { role: "ansible-linux-pkg", allow_reboot: true, update: true, pkg: [ "rsync", "apache2", "nginx" }
+```
+
 
 License
 -------
