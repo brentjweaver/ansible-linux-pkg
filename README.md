@@ -25,8 +25,9 @@ Variable | Type | Expected Value | Default | Notes |
 Dependencies
 ------------
 
-* Python
+* Python 
 * yumutils installed on rhel based distros
+* aptitude installed on ubuntu based distros
 * Target nodes have package repositories configured
 
 
